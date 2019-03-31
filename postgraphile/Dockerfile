@@ -7,4 +7,4 @@ ENV DB postgres
 ENV USER postgres
 ENV PASSWORD password
 
-ENTRYPOINT sh -c '/bin/wait-for.sh $CONNECTION -- postgraphile -n 0.0.0.0 --connection postgresql://$USER:$PASSWORD@$CONNECTION/$DB --watch --enhance-graphiql'
+ENTRYPOINT sh -c '/bin/wait-for.sh $CONNECTION -- postgraphile -n 0.0.0.0 --connection postgresql://$USER:$PASSWORD@$CONNECTION/$DB --watch --enhance-graphiql --cors'

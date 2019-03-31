@@ -67,3 +67,18 @@ npx postgraphile -n 0.0.0.0 --connection "postgresql://postgres:password@localho
 ### Hasura
 
 Let's add [Hasura section to the docker compose](https://docs.hasura.io/1.0/graphql/manual/deployment/docker/index.html#step-1-get-the-docker-run-sh-bash-script).
+
+## GraphQL explorers
+
+### Voyager
+
+```
+npx serve -s voyager -p 5001
+```
+
+Open http://localhost:5001
+
+### Rover
+
+- Go to https://brbb.github.io/graphql-rover/
+- Configure Endpoint url http://localhost:5000/graphql
