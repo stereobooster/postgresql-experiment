@@ -97,3 +97,20 @@ password: superset
 ```
 
 Go to add database scrion. Add postgresql://postgres:password@db:5432/postgres
+
+## Other
+
+### Ghost as CMS
+
+Use docker `docker run -p 3001:2368 ghost` or [deploy to heroku](https://github.com/cobyism/ghost-on-heroku).
+
+Use gatsby as GraphQL API proxy
+
+```
+git clone https://github.com/TryGhost/gatsby-starter-ghost.git
+cd gatsby-starter-ghost
+yarn
+yarn dev
+```
+
+Go to http://localhost:8000/___graphql
