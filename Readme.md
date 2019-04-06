@@ -82,3 +82,18 @@ Open http://localhost:5001
 
 - Go to https://brbb.github.io/graphql-rover/
 - Configure Endpoint url http://localhost:5000/graphql
+
+## Visualization and analytics
+
+### superset
+
+See docker-compose section for superset.
+
+Credentials
+
+```
+username: admin
+password: superset
+```
+
+Go to add database scrion. Add postgresql://postgres:password@db:5432/postgres

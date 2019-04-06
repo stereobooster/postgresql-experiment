@@ -36,3 +36,9 @@ services:
       - HASURA_GRAPHQL_ENABLE_CONSOLE=true
     depends_on:
       - db
+  superset:
+    image: tylerfowler/superset
+    ports:
+      - "8088:8088"
+    depends_on:
+      - db
