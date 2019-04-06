@@ -100,6 +100,8 @@ Go to add database scrion. Add postgresql://postgres:password@db:5432/postgres
 
 ## Other
 
+https://www.gatsbyjs.org/docs/headless-cms/
+
 ### Ghost as CMS
 
 Use docker `docker run -p 3001:2368 ghost` or [deploy to heroku](https://github.com/cobyism/ghost-on-heroku).
@@ -114,3 +116,14 @@ yarn dev
 ```
 
 Go to http://localhost:8000/___graphql
+
+### WordPress as CMS
+
+```
+git clone https://github.com/postlight/headless-wp-starter.git
+cd headless-wp-starter
+docker-compose up
+```
+
+- Dashboard: http://localhost:8080/wp-admin (default credentials nedstark/winteriscoming)
+- GraphQL API: http://localhost:8080/graphql
