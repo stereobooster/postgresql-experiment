@@ -100,7 +100,9 @@ Go to add database scrion. Add postgresql://postgres:password@db:5432/postgres
 
 ## Other
 
-https://www.gatsbyjs.org/docs/headless-cms/
+- https://headlesscms.org/
+- https://www.gatsbyjs.org/docs/headless-cms/
+- https://github.com/postlight/awesome-cms
 
 ### Ghost as CMS
 
@@ -127,3 +129,63 @@ docker-compose up
 
 - Dashboard: http://localhost:8080/wp-admin (default credentials nedstark/winteriscoming)
 - GraphQL API: http://localhost:8080/graphql
+
+### Directus
+
+```
+git clone https://github.com/directus/docker.git directus
+cd directus/examples/single-api
+docker-compose up
+```
+
+- Dashboard: http://localhost:8000/ (default credentials admin@localhost.com/directusrocks)
+- API: http://localhost:7000/
+
+> You can assign a static token to any user by adding a value to the token column in the directus_users table in the database directly. As of right now, it's not (yet) possible to set this token from the admin application, as it's rather easy to create a huge security leak for unexperienced users.
+
+```
+docker exec -i -t single-api_database_1 mysql --user=someusername --password=somepassword somedb
+```
+
+```sql
+UPDATE directus_users SET token='token' where id=1;
+exit;
+```
+
+Use gatsby as GraphQL API proxy
+
+```
+npx gatsby new directus-starter
+cd directus-starter
+yarn add gatsby-source-directus
+```
+
+change `gatsby-config.js` - add plugin config
+
+```js
+{
+  resolve: `gatsby-source-directus`,
+  options: {
+    /*
+      * The base URL of Directus without the trailing slash.
+      * Example: 'example.com' or 'www.example.com'
+      */
+    url: `localhost:7000`,
+    /*
+      * Directus protocol. Can be either http or https
+      */
+    protocol: "http",
+    /*
+      * Directus API key. You can find it on the bottom of your account settings page.
+      */
+    apiKey: "token",
+  },
+},
+```
+
+```
+yarn develop
+...
+error Plugin gatsby-source-directus returned an error
+ReferenceError: regeneratorRuntime is not defined
+```
