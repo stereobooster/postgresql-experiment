@@ -189,3 +189,60 @@ yarn develop
 error Plugin gatsby-source-directus returned an error
 ReferenceError: regeneratorRuntime is not defined
 ```
+
+### Strapi
+
+start db continer
+
+```
+docker-compose up
+```
+
+login into PostgreSQL database
+
+```
+docker exec -it db-experiment_db_1 psql --u postgres
+```
+
+create db
+
+```sql
+create database strapi;
+```
+
+stop container. Add strapi section to compose file
+
+```yaml
+  strapi:
+    image: strapi/strapi
+    depends_on:
+      - db
+    ports:
+      - 1337:1337
+    environment:
+      - APP_NAME=strapi-app
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=strapi
+    volumes:
+      - ./db/strapi-app/:/usr/src/api/strapi-app
+```
+
+start
+
+```
+docker-compose up
+```
+
+Go to http://localhost:1337/admin/. Register.
+
+Go to http://localhost:1337/admin/marketplace. Install GraphQL plugin.
+
+Add content type.
+
+Edit permissions http://localhost:1337/admin/plugins/users-permissions/roles/edit/3
+
+Your API is ready http://localhost:1337/graphql.
