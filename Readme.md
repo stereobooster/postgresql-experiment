@@ -277,3 +277,11 @@ docker run -p 8080:80 agentejo/cockpit
 Go to http://localhost:8080/install/
 
 And I have no idea how to install [CockpitQL](https://github.com/agentejo/CockpitQL).
+
+### Mesh
+
+```
+docker run -p 8080:8080 gentics/mesh-demo
+```
+
+go to http://localhost:8080/mesh-ui/ (use admin/admin for credentials)
