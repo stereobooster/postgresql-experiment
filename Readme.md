@@ -246,3 +246,22 @@ Add content type.
 Edit permissions http://localhost:1337/admin/plugins/users-permissions/roles/edit/3
 
 Your API is ready http://localhost:1337/graphql.
+
+### Prime
+
+```
+git clone https://github.com/astzweig/docker-primecms.git
+cd docker-primecms
+```
+
+Add `docker-compose.yaml`
+
+```yaml
+version: "3"
+
+services:
+  prime:
+    build: .
+```
+
+run `docker-compose up` and get the error [astzweig/docker-primecms#1](https://github.com/astzweig/docker-primecms/issues/1).
