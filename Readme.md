@@ -265,3 +265,15 @@ services:
 ```
 
 run `docker-compose up` and get the error [astzweig/docker-primecms#1](https://github.com/astzweig/docker-primecms/issues/1).
+
+### Cockpit
+
+https://getcockpit.com/
+
+```
+docker run -p 8080:80 agentejo/cockpit
+```
+
+Go to http://localhost:8080/install/
+
+And I have no idea how to install [CockpitQL](https://github.com/agentejo/CockpitQL).
