@@ -213,22 +213,22 @@ create database strapi;
 stop container. Add strapi section to compose file
 
 ```yaml
-  strapi:
-    image: strapi/strapi
-    depends_on:
-      - db
-    ports:
-      - 1337:1337
-    environment:
-      - APP_NAME=strapi-app
-      - DATABASE_CLIENT=postgres
-      - DATABASE_HOST=db
-      - DATABASE_PORT=5432
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=password
-      - DATABASE_NAME=strapi
-    volumes:
-      - ./db/strapi-app/:/usr/src/api/strapi-app
+strapi:
+  image: strapi/strapi
+  depends_on:
+    - db
+  ports:
+    - 1337:1337
+  environment:
+    - APP_NAME=strapi-app
+    - DATABASE_CLIENT=postgres
+    - DATABASE_HOST=db
+    - DATABASE_PORT=5432
+    - DATABASE_USERNAME=postgres
+    - DATABASE_PASSWORD=password
+    - DATABASE_NAME=strapi
+  volumes:
+    - ./db/strapi-app/:/usr/src/api/strapi-app
 ```
 
 start
@@ -250,21 +250,12 @@ Your API is ready http://localhost:1337/graphql.
 ### Prime
 
 ```
-git clone https://github.com/astzweig/docker-primecms.git
+git clone https://github.com/primecms/heroku.git docker-primecms
 cd docker-primecms
+docker-compose up
 ```
 
-Add `docker-compose.yaml`
-
-```yaml
-version: "3"
-
-services:
-  prime:
-    build: .
-```
-
-run `docker-compose up` and get the error [astzweig/docker-primecms#1](https://github.com/astzweig/docker-primecms/issues/1).
+Go to http://localhost:4000
 
 ### Cockpit
 
