@@ -98,6 +98,10 @@ password: superset
 
 Go to add database scrion. Add postgresql://postgres:password@db:5432/postgres
 
+### redash
+
+See https://github.com/getredash/redash/blob/master/docker-compose.yml
+
 ## Other
 
 - https://headlesscms.org/
