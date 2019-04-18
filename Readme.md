@@ -106,6 +106,7 @@ See https://github.com/getredash/redash/blob/master/docker-compose.yml
 
 - https://github.com/QuantumObject/docker-mywebsql
 - https://github.com/taivokasper/docker-omnidb
+- https://hub.docker.com/r/dpage/pgadmin4/
 - https://www.gatsbyjs.org/docs/headless-cms/
 - https://github.com/postlight/awesome-cms
 
